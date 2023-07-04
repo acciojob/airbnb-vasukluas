@@ -34,7 +34,7 @@ public class HotelManagementRepository {
     }
 
     public String addHotel(Hotel hotel) {
-        if(hotel.getHotelName()==null || hotel==null){
+        if(hotel.getHotelName()==null ){
             return "FAILURE";
         } else if (hotelMap.containsKey(hotel.getHotelName())) {
             return "FAILURE";
