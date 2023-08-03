@@ -28,7 +28,7 @@ public class HotelManagementSerive {
         return hotelManagementRepository.bookARoom(booking);
     }
 
-    public String getBookings(Integer aadharCard) {
+    public int getBookings(Integer aadharCard) {
         return hotelManagementRepository.getBookings(aadharCard);
     }
 
