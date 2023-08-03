@@ -20,7 +20,7 @@ public class HotelManagementRepository {
       Map<String,Booking> bookingDb=new HashMap<>();
 
       Map<Integer,Integer>countOfBookings=new HashMap<>();
-    final AtomicInteger aadharCardCounter = new AtomicInteger(1);
+//    final AtomicInteger aadharCardCounter = new AtomicInteger(1);
 
     public  String addHotel(Hotel hotel) {
     if(hotel.getHotelName() == null){
@@ -37,9 +37,9 @@ public class HotelManagementRepository {
     }
 
     public int addUser(User user) {
-        int adhaarCardNo=aadharCardCounter.getAndIncrement();
-        user.setaadharCardNo(adhaarCardNo);
-        userDb.put(adhaarCardNo,user);
+//        int adhaarCardNo=aadharCardCounter.getAndIncrement();
+//        user.setaadharCardNo(adhaarCardNo);
+        userDb.put(user.getaadharCardNo(),user);
         return user.getaadharCardNo();
     }
 
