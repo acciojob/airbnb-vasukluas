@@ -1,22 +1,24 @@
 package com.driver.model;
 
+import java.util.UUID;
+
 public class User {
 
-    private int aadharCardNo; //This is the unique key that determines a unique user
+    private UUID aadharCardNo; //This is the unique key that determines a unique user
     private String name;
     private int age;
 
-    public User(int aadharCardNo, String name, int age) {
+    public User(UUID aadharCardNo, String name, int age) {
         this.aadharCardNo = aadharCardNo;
         this.name = name;
         this.age = age;
     }
 
-    public int getaadharCardNo() {
+    public UUID getaadharCardNo() {
         return aadharCardNo;
     }
 
-    public void setaadharCardNo(int aadharCardNo) {
+    public void setaadharCardNo(UUID aadharCardNo) {
         this.aadharCardNo = aadharCardNo;
     }
 

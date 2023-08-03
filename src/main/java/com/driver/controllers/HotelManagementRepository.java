@@ -14,26 +14,29 @@ import java.util.UUID;
 @Repository
 public class HotelManagementRepository {
       static Map<String,Hotel>hotelDb=new HashMap<>();
-      Map<Integer, User>userDb=new HashMap<>();
+      Map<UUID, User> userDb=new HashMap<UUID, User>();
 
-      Map<String,Booking>bookingDb=new HashMap<>();
+      Map<UUID, Booking> bookingDb=new HashMap<UUID, Booking>();
 
       Map<Integer,Integer>countOfBookings=new HashMap<>();
-
+      UUID key= UUID.randomUUID();
 
     public String addHotel(Hotel hotel) {
-    if(hotel.getHotelName() == null || hotel==null){
+    if(hotel.getHotelName() == null ){
         return "FAILURE";
     }
      else if(hotelDb.containsKey(hotel.getHotelName())){
          return "FAILURE";
     }
-     else
-         hotelDb.put(hotel.getHotelName(),hotel);
-     return "SUCCESS";
+     else{
+        hotelDb.put(hotel.getHotelName(),hotel);
+        return "SUCCESS";
     }
 
-    public int addUser(User user) {
+    }
+
+    public UUID addUser(User user) {
+        user.setaadharCardNo(key);
         userDb.put(user.getaadharCardNo(),user);
         return user.getaadharCardNo();
     }
@@ -42,11 +45,11 @@ public class HotelManagementRepository {
         int facilities=0;
         String HotelName="";
         for(Hotel hotel: hotelDb.values()){
-            if(hotel.getFacilities().size() > facilities){
+            if(hotel.getFacilities()!=null &&   hotel.getFacilities().size() > facilities){
                 facilities=hotel.getFacilities().size();
-                HotelName=hotel.getHotelName();
+//                HotelName=hotel.getHotelName();
             }
-                 if(hotel.getFacilities().size()==facilities){
+            else if(hotel.getFacilities()!=null && hotel.getFacilities().size()==facilities){
                 if(hotel.getHotelName().compareTo(HotelName)<0){
                     HotelName=hotel.getHotelName();
                 }
@@ -56,7 +59,7 @@ public class HotelManagementRepository {
     }
 
     public int bookARoom(Booking booking) {
-         String key= UUID.randomUUID().toString();
+
         booking.setBookingId(key);
         String hotelName= booking.getHotelName();
         Hotel hotel=hotelDb.get(hotelName);

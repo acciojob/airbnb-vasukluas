@@ -8,6 +8,7 @@ import com.driver.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class HotelManagementService {
@@ -18,7 +19,7 @@ public class HotelManagementService {
         return hotelManagementRepository.addHotel(hotel);
     }
 
-    public int addUser(User user) {
+    public UUID addUser(User user) {
         return hotelManagementRepository.addUser(user);
     }
 

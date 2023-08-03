@@ -4,7 +4,6 @@ import com.driver.model.Booking;
 import com.driver.model.Facility;
 import com.driver.model.Hotel;
 import com.driver.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -35,7 +35,7 @@ public class HotelManagementController {
     }
 
     @PostMapping("/add-user")
-    public  Integer addUser(@RequestBody User user){
+    public UUID addUser(@RequestBody User user){
 
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
