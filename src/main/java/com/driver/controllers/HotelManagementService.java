@@ -19,7 +19,7 @@ public class HotelManagementService {
         return hotelManagementRepository.addHotel(hotel);
     }
 
-    public UUID addUser(User user) {
+    public int addUser(User user) {
         return hotelManagementRepository.addUser(user);
     }
 

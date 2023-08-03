@@ -4,17 +4,17 @@ import java.util.UUID;
 
 public class User {
 
-    private UUID aadharCardNo; //This is the unique key that determines a unique user
+    private int aadharCardNo; //This is the unique key that determines a unique user
     private String name;
     private int age;
 
-    public User(UUID aadharCardNo, String name, int age) {
+    public User(int aadharCardNo, String name, int age) {
         this.aadharCardNo = aadharCardNo;
         this.name = name;
         this.age = age;
     }
 
-    public UUID getaadharCardNo() {
+    public int getaadharCardNo() {
         return aadharCardNo;
     }
 

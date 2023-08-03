@@ -36,7 +36,7 @@ public class HotelManagementRepository {
 
     }
 
-    public UUID addUser(User user) {
+    public int addUser(User user) {
         int adhaarCardNo=aadharCardCounter.getAndIncrement();
         user.setaadharCardNo(adhaarCardNo);
         return user.getaadharCardNo();
