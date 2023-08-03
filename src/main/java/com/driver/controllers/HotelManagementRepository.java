@@ -45,7 +45,7 @@ public class HotelManagementRepository {
                 facilities=hotel.getFacilities().size();
                 HotelName=hotel.getHotelName();
             }
-            else if(hotel.getFacilities().size()==facilities){
+             if(hotel.getFacilities().size()==facilities){
                 if(hotel.getHotelName().compareTo(HotelName)<0){
                     HotelName=hotel.getHotelName();
                 }
