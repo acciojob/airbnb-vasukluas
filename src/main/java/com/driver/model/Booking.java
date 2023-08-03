@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Booking {
 
-    private UUID bookingId; //This will be a random UUID generated String
+    private String bookingId; //This will be a random UUID generated String
 
     private int bookingAadharCard;
 
@@ -16,7 +16,7 @@ public class Booking {
 
     private int amountToBePaid;
 
-    public Booking(UUID bookingId, int bookingAadharCard, int noOfRooms, String bookingPersonName, String hotelName) {
+    public Booking(String  bookingId, int bookingAadharCard, int noOfRooms, String bookingPersonName, String hotelName) {
         this.bookingId = bookingId;
         this.bookingAadharCard = bookingAadharCard;
         this.noOfRooms = noOfRooms;
@@ -31,11 +31,11 @@ public class Booking {
         this.hotelName = hotelName;
     }
 
-    public UUID getBookingId() {
+    public String getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(UUID bookingId) {
+    public void setBookingId(String bookingId) {
         this.bookingId = bookingId;
     }
 
