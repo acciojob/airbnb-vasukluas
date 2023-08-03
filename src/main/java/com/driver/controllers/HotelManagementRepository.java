@@ -13,12 +13,12 @@ import java.util.UUID;
 
 @Repository
 public class HotelManagementRepository {
-    private  Map<String,Hotel>hotelDb=new HashMap<>();
-    private  Map<Integer, User>userDb=new HashMap<>();
+      static Map<String,Hotel>hotelDb=new HashMap<>();
+      Map<Integer, User>userDb=new HashMap<>();
 
-    private  Map<String,Booking>bookingDb=new HashMap<>();
+      Map<String,Booking>bookingDb=new HashMap<>();
 
-    private  Map<Integer,Integer>countOfBoookings=new HashMap<>();
+      Map<Integer,Integer>countOfBoookings=new HashMap<>();
 
     public String addHotel(Hotel hotel) {
     if(hotel.getHotelName()==null || hotel==null){
@@ -45,7 +45,7 @@ public class HotelManagementRepository {
                 facilities=hotel.getFacilities().size();
                 HotelName=hotel.getHotelName();
             }
-             if(hotel.getFacilities().size()==facilities){
+            else if(hotel.getFacilities().size()==facilities){
                 if(hotel.getHotelName().compareTo(HotelName)<0){
                     HotelName=hotel.getHotelName();
                 }
