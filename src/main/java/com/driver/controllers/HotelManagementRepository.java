@@ -22,8 +22,8 @@ public class HotelManagementRepository {
       Map<Integer,Integer>countOfBookings=new HashMap<>();
     final AtomicInteger aadharCardCounter = new AtomicInteger(1);
 
-    public String addHotel(Hotel hotel) {
-    if(hotel.getHotelName() == null ){
+    public  String addHotel(Hotel hotel) {
+    if(hotel.getHotelName() == null || hotel==null){
         return "FAILURE";
     }
      else if(hotelDb.containsKey(hotel.getHotelName())){

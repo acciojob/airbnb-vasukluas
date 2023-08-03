@@ -13,7 +13,7 @@ import java.util.UUID;
 @Service
 public class HotelManagementService {
 
-    HotelManagementRepository hotelManagementRepository=new HotelManagementRepository();
+    HotelManagementRepository hotelManagementRepository;
 
     public String addHotel(Hotel hotel) {
         return hotelManagementRepository.addHotel(hotel);
