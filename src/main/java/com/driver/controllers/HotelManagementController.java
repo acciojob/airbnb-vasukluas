@@ -20,9 +20,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/hotel")
 public class HotelManagementController {
-    @Autowired
-    static
-    HotelManagementService hotelManagementService;
+
+    HotelManagementService hotelManagementService=new HotelManagementService();
 
     @PostMapping("/add-hotel")
     public String addHotel(@RequestBody Hotel hotel){
@@ -40,7 +39,7 @@ public class HotelManagementController {
 
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
-        return hotelManagementService.addUser(user);
+            return hotelManagementService.addUser(user);
     }
 
     @GetMapping("/get-hotel-with-most-facilities")

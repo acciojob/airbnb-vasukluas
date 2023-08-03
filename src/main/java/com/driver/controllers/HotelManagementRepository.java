@@ -18,16 +18,17 @@ public class HotelManagementRepository {
 
       Map<String,Booking>bookingDb=new HashMap<>();
 
-      Map<Integer,Integer>countOfBoookings=new HashMap<>();
+      Map<Integer,Integer>countOfBookings=new HashMap<>();
+
 
     public String addHotel(Hotel hotel) {
-    if(hotel.getHotelName()==null || hotel==null){
+    if(hotel.getHotelName() == null){
         return "FAILURE";
     }
-     if(hotelDb.containsKey(hotel.getHotelName())){
+     else if(hotelDb.containsKey(hotel.getHotelName())){
          return "FAILURE";
     }
-
+     else
          hotelDb.put(hotel.getHotelName(),hotel);
      return "SUCCESS";
     }
@@ -55,10 +56,10 @@ public class HotelManagementRepository {
     }
 
     public int bookARoom(Booking booking) {
-        String key= UUID.randomUUID().toString();
+         String key= UUID.randomUUID().toString();
         booking.setBookingId(key);
-        String hotalName= booking.getHotelName();
-        Hotel hotel=hotelDb.get(hotalName);
+        String hotelName= booking.getHotelName();
+        Hotel hotel=hotelDb.get(hotelName);
         int avialbleRooms=hotel.getAvailableRooms();
         if(avialbleRooms < booking.getNoOfRooms()){
             return -1;
@@ -68,21 +69,20 @@ public class HotelManagementRepository {
 
         hotel.setAvailableRooms(hotel.getAvailableRooms()-booking.getNoOfRooms());
         bookingDb.put(key,booking);
-        hotelDb.put(hotalName,hotel);
+        hotelDb.put(hotelName,hotel);
         int aadhaarCard=booking.getBookingAadharCard();
-        if(countOfBoookings.containsKey(aadhaarCard)){
-            int totalbookings=countOfBoookings.get(aadhaarCard);
-            countOfBoookings.put(aadhaarCard,totalbookings+1);
+        if(countOfBookings.containsKey(aadhaarCard)){
+            int totalbookings=countOfBookings.get(aadhaarCard);
+            countOfBookings.put(aadhaarCard,totalbookings+1);
         }
         else {
-            countOfBoookings.put(aadhaarCard,1);
+            countOfBookings.put(aadhaarCard,1);
         }
         return amountToBePaid;
     }
 
     public int getBookings(Integer aadharCard) {
-        int totalbookings=countOfBoookings.get(aadharCard);
-      return totalbookings;
+        return countOfBookings.get(aadharCard);
     }
 
     public Hotel updateFacilities(List<Facility> newFacilities, String hotelName) {
