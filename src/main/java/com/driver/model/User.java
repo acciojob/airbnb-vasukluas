@@ -18,7 +18,7 @@ public class User {
         return aadharCardNo;
     }
 
-    public void setaadharCardNo(UUID aadharCardNo) {
+    public void setaadharCardNo(int aadharCardNo) {
         this.aadharCardNo = aadharCardNo;
     }
 

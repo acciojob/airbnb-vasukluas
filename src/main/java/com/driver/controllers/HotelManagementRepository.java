@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class HotelManagementRepository {
@@ -19,7 +20,7 @@ public class HotelManagementRepository {
       Map<UUID, Booking> bookingDb=new HashMap<UUID, Booking>();
 
       Map<Integer,Integer>countOfBookings=new HashMap<>();
-      UUID key= UUID.randomUUID();
+    final AtomicInteger aadharCardCounter = new AtomicInteger(1);
 
     public String addHotel(Hotel hotel) {
     if(hotel.getHotelName() == null ){
@@ -36,8 +37,8 @@ public class HotelManagementRepository {
     }
 
     public UUID addUser(User user) {
-        user.setaadharCardNo(key);
-        userDb.put(user.getaadharCardNo(),user);
+        int adhaarCardNo=aadharCardCounter.getAndIncrement();
+        user.setaadharCardNo(adhaarCardNo);
         return user.getaadharCardNo();
     }
 
@@ -59,8 +60,8 @@ public class HotelManagementRepository {
     }
 
     public int bookARoom(Booking booking) {
-
-        booking.setBookingId(key);
+        String key= UUID.randomUUID().toString();
+        booking.setBookingId(UUID.fromString(key));
         String hotelName= booking.getHotelName();
         Hotel hotel=hotelDb.get(hotelName);
         int avialbleRooms=hotel.getAvailableRooms();
@@ -71,7 +72,7 @@ public class HotelManagementRepository {
         booking.setAmountToBePaid(amountToBePaid);
 
         hotel.setAvailableRooms(hotel.getAvailableRooms()-booking.getNoOfRooms());
-        bookingDb.put(key,booking);
+        bookingDb.put(UUID.fromString(key),booking);
         hotelDb.put(hotelName,hotel);
         int aadhaarCard=booking.getBookingAadharCard();
         if(countOfBookings.containsKey(aadhaarCard)){
