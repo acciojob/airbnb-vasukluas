@@ -47,7 +47,7 @@ public class HotelManagementRepository {
 
         for (Hotel hotel : hotelDb.values()) {
 
-            if (hotel.getFacilities() == null) continue;
+//            if (hotel.getFacilities() == null) continue;
 
             if (hotel.getFacilities().size() > facilities) {
                 facilities = hotel.getFacilities().size();
