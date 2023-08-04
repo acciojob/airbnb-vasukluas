@@ -50,7 +50,7 @@ public class HotelManagementController {
         //Incase there is a tie return the lexicographically smaller hotelName
         //Incase there is not even a single hotel with atleast 1 facility return "" (empty string)
          String s=hotelManagementService.getHotelWithMostFacilities();
-        return null;
+        return s;
     }
 
     @PostMapping("/book-a-room")
