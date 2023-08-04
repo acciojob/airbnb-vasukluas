@@ -23,7 +23,7 @@ public class HotelManagementRepository {
 //    final AtomicInteger aadharCardCounter = new AtomicInteger(1);
 
     public String addHotel(Hotel hotel) {
-        if (hotel.getHotelName() == null) {
+        if (hotel==null || hotel.getHotelName() == null) {
             return "FAILURE";
         } else if (hotelDb.containsKey(hotel.getHotelName())) {
             return "FAILURE";
